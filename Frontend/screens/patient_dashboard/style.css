@@ -1,0 +1,550 @@
+/* ROOT */
+.dashboard-root{
+  min-height:100vh;
+  background:#f4f9ff;
+}
+
+/* SIDEBAR */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:0;
+  width:260px;
+  height:100vh;
+  background:linear-gradient(180deg,#0b3a66,#0a2f52);
+  color:white;
+  padding:16px;
+  transition:width 0.3s ease;
+}
+
+.sidebar.collapsed{
+  width:72px;
+}
+
+/* HEADER */
+.sidebar-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  font-weight:800;
+}
+
+.collapse-btn{
+  background:none;
+  border:none;
+  color:white;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* PROFILE */
+.profile-box{
+  display:flex;
+  gap:12px;
+  margin:20px 0;
+}
+
+.avatar{
+  width:50px;
+  height:50px;
+  border-radius:10px;
+}
+
+.profile-info{
+  font-size:14px;
+}
+
+/* NAV */
+.nav{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.nav-item{
+  background:none;
+  border:none;
+  color:white;
+  padding:10px;
+  border-radius:8px;
+  cursor:pointer;
+  text-align:left;
+  display:flex;
+  align-items:center;
+}
+
+.nav-item.active{
+  background:rgba(255,255,255,0.15);
+}
+
+.icon{
+  font-size:18px;
+  margin-right:12px;
+}
+
+/* COLLAPSE EFFECT */
+.sidebar.collapsed .profile-info,
+.sidebar.collapsed .nav-text,
+.sidebar.collapsed .sidebar-footer{
+  display:none;
+}
+
+.sidebar.collapsed .icon{
+  margin:0 auto;
+}
+
+/* FOOTER */
+.sidebar-footer{
+  margin-top:auto;
+}
+
+.logout-btn{
+  background:#ff4d4d;
+  border:none;
+  color:white;
+  padding:8px;
+  width:100%;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* MAIN */
+.main{
+  margin-left:260px;
+  padding:24px;
+  transition:margin-left 0.3s ease;
+}
+
+.sidebar.collapsed ~ .main{
+  margin-left:72px;
+}
+
+/* CONTENT */
+.pane.hidden{display:none;}
+
+.welcome-card{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  background:white;
+  padding:24px;
+  border-radius:16px;
+}
+
+.stats{
+  display:flex;
+  gap:12px;
+  margin-top:12px;
+}
+
+.stat{
+  background:#eef5ff;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.thought-card{
+  background:#f0f7ff;
+  padding:16px;
+  border-radius:12px;
+  width:300px;
+}
+
+.highlight{color:#1E88E5}
+.small{font-size:12px;color:#666}
+.muted{color:#666}
+.list{margin-top:10px}
+
+/* HOME HEADER */
+.home-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.status-badge{
+  padding:8px 14px;
+  border-radius:20px;
+  font-weight:600;
+}
+.status-badge.stable{
+  background:#e6f6ec;
+  color:#2e7d32;
+}
+
+/* VITALS */
+.vitals-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:14px;
+  margin-bottom:20px;
+}
+
+.vital-card{
+  background:white;
+  border-radius:14px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.vital-name{font-size:13px;color:#666}
+.vital-value{font-size:18px;font-weight:700;margin:6px 0}
+.vital-range{font-size:12px;color:#2e7d32}
+
+/* ALERT */
+.alert-card{
+  margin-bottom:20px;
+}
+.alert-card.success{
+  background:#eaf8f0;
+  color:#2e7d32;
+}
+
+/* TWO COL */
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-bottom:20px;
+}
+
+.task-list{
+  list-style:none;
+  padding-left:0;
+}
+.task-list li{
+  margin-bottom:8px;
+}
+
+/* QUICK ACTIONS */
+.quick-actions{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.action-btn{
+  background:#eef5ff;
+  border:none;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+.action-btn.danger{
+  background:#ffeaea;
+  color:#c62828;
+}
+
+/* THOUGHT */
+.thought-card{
+  background:#f0f7ff;
+  padding:16px;
+  border-radius:14px;
+}
+
+/* MEDICATION SCHEDULE */
+.med-schedule{
+  display:flex;
+  gap:14px;
+  margin-top:12px;
+}
+
+.schedule-box{
+  flex:1;
+  background:#eef5ff;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+}
+
+/* MED CARD */
+.med-card{
+  background:white;
+  border-radius:16px;
+  padding:16px;
+  margin-top:16px;
+  box-shadow:0 10px 24px rgba(0,0,0,0.06);
+  border-left:6px solid transparent;
+}
+
+/* STATUS COLORS */
+.med-card.pending{ border-color:#ffb300; }
+.med-card.taken{ border-color:#2e7d32; }
+
+.med-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.med-icon{
+  font-size:26px;
+}
+
+.status{
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.status.pending{
+  background:#fff3cd;
+  color:#ff8f00;
+}
+
+.status.taken{
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+/* MED BODY */
+.med-body{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  font-size:14px;
+}
+
+/* ACTIONS */
+.med-actions{
+  margin-top:14px;
+  display:flex;
+  gap:12px;
+}
+
+/* ADD MED */
+.add-med-card{
+  margin-top:20px;
+  padding:20px;
+  text-align:center;
+  background:#f4f9ff;
+  border-radius:14px;
+}
+
+/* HISTORY CONTROLS */
+.history-controls{
+  display:flex;
+  gap:12px;
+  margin-top:12px;
+}
+
+/* YEAR LABEL */
+.history-year{
+  font-size:18px;
+  font-weight:700;
+  margin:20px 0 10px;
+  color:#1E88E5;
+}
+
+/* TIMELINE EVENT */
+.history-event{
+  display:flex;
+  gap:14px;
+  background:white;
+  padding:14px;
+  border-radius:14px;
+  margin-bottom:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+  border-left:6px solid transparent;
+}
+
+/* EVENT TYPES */
+.history-event.visit{ border-color:#1E88E5; }
+.history-event.test{ border-color:#9c27b0; }
+.history-event.hospital{ border-color:#e53935; }
+.history-event.vaccine{ border-color:#2e7d32; }
+
+/* ICON */
+.event-icon{
+  font-size:28px;
+}
+
+/* CONTENT */
+.event-content h3{
+  margin-bottom:4px;
+}
+
+/* BADGE */
+.badge{
+  display:inline-block;
+  margin-top:6px;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+}
+
+.badge.completed{
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+/* AI SUMMARY */
+.ai-summary{
+  margin-top:20px;
+  background:#f0f7ff;
+}
+
+/* RESPONSIVE */
+@media(max-width:700px){
+  .history-controls{
+    flex-direction:column;
+  }
+}
+
+/* AI SUGGESTIONS */
+.ai-cards{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:16px;
+}
+
+.ai-card{
+  display:flex;
+  gap:14px;
+  background:white;
+  padding:16px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+
+.ai-icon{
+  font-size:28px;
+}
+
+.ai-tag{
+  display:inline-block;
+  margin-top:6px;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:600;
+}
+
+/* TAG COLORS */
+.ai-tag.lifestyle{
+  background:#e3f2fd;
+  color:#1565c0;
+}
+
+.ai-tag.medication{
+  background:#e8f5e9;
+  color:#2e7d32;
+}
+
+.ai-tag.alert{
+  background:#ffebee;
+  color:#c62828;
+}
+
+/* ASK AI */
+.ask-ai{
+  margin-top:20px;
+}
+
+.ai-response{
+  margin-top:12px;
+  padding:12px;
+  background:#f0f7ff;
+  border-radius:12px;
+}
+
+.ai-response.hidden{
+  display:none;
+}
+
+/* DISCLAIMER */
+.ai-disclaimer{
+  margin-top:20px;
+  font-size:13px;
+  color:#555;
+  background:#fff8e1;
+  padding:10px;
+  border-radius:10px;
+}
+
+/* SETTINGS */
+.setting-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:8px;
+  font-size:14px;
+}
+
+.toggle-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:10px;
+  font-size:14px;
+}
+
+.toggle-row input{
+  transform:scale(1.2);
+  cursor:pointer;
+}
+
+/* DANGER ZONE */
+.danger-zone{
+  border:2px solid #ffcdd2;
+  background:#fff5f5;
+}
+
+.btn.danger{
+  background:#e53935;
+  color:white;
+  margin-right:10px;
+}
+
+/* VISIBILITY CONTROL */
+.pane {
+  display: none;
+}
+.pane.active {
+  display: block;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+
+.modal.hidden{
+  display:none;
+}
+
+.modal-box{
+  background:white;
+  padding:20px;
+  width:320px;
+  border-radius:14px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:14px;
+}

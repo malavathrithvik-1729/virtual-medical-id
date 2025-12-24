@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>V-Med ID - Login</title>
+
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<!-- STEP 1: ROLE SELECTION -->
+<div id="roleStep" class="card step">
+  <h1 class="h1">Welcome to V-Med ID</h1>
+  <p class="p-muted">Choose your role</p>
+
+  <div class="role-box">
+    <div class="role-card" onclick="selectRole('patient', this)">Patient</div>
+    <div class="role-card" onclick="selectRole('doctor', this)">Doctor</div>
+    <div class="role-card" onclick="selectRole('government', this)">Government</div>
+  </div>
+
+  <button class="btn" onclick="goNext()">Continue</button>
+</div>
+
+
+<!-- STEP 2: LOGIN OR SIGNUP -->
+<div id="methodStep" class="card step hidden">
+  <h1 class="h1">Continue</h1>
+  <div class="hr"></div>
+
+  <div style="display:flex; gap:10px; margin-top:12px;">
+    <button class="btn ghost" onclick="gotoLogin()">Log In</button>
+    <button class="btn" onclick="gotoSignup()">Sign Up</button>
+  </div>
+
+  <div class="back-link" onclick="showStep('roleStep')">← Back</div>
+</div>
+
+
+
+<!-- STEP 3A: LOGIN FORM -->
+<div id="loginStep" class="card step hidden">
+  <h1 class="h1">Log In</h1>
+
+  <input id="loginUser" class="input" placeholder="User ID (Phone / Email)">
+  <input id="loginPass" class="input" type="password" placeholder="Password">
+
+  <button class="btn" onclick="sendLoginOtp()">Send OTP</button>
+
+  <div class="back-link" onclick="showStep('methodStep')">← Back</div>
+</div>
+
+
+
+<!-- STEP 3B: PATIENT SIGNUP -->
+<div id="patientSignupStep" class="card step hidden">
+  <h1 class="h1">Patient Sign Up</h1>
+
+  <input class="input" placeholder="Name" required>
+  <input class="input" placeholder="Father Name" required>
+  <input class="input" placeholder="Mother Name" required>
+  <input class="input" type="date" placeholder="DOB" required>
+  <input class="input" placeholder="Aadhar No" required>
+  <input class="input" placeholder="Phone No" required>
+  <input class="input" placeholder="Gmail ID" required>
+  <input class="input" placeholder="Address" required>
+  <input class="input" placeholder="Blood Group (optional)">
+  <input class="input" placeholder="Occupation">
+  <input class="input" placeholder="Education">
+
+  <button class="btn" onclick="sendSignupOtp('patientSignupStep')">Send OTP</button>
+
+  <div class="back-link" onclick="showStep('methodStep')">← Back</div>
+</div>
+
+
+
+<!-- STEP 3C: DOCTOR SIGNUP -->
+<div id="doctorSignupStep" class="card step hidden">
+  <h1 class="h1">Doctor Sign Up</h1>
+
+  <input class="input" placeholder="Name" required>
+  <input class="input" type="date" placeholder="DOB" required>
+  <input class="input" placeholder="Aadhar No" required>
+  <input class="input" placeholder="Phone No" required>
+  <input class="input" placeholder="Gmail ID" required>
+  <input class="input" placeholder="Address" required>
+  <input class="input" placeholder="Specialization" required>
+  <input class="input" placeholder="Hospital Address" required>
+  <input class="input" placeholder="Doctor Registered ID" required>
+
+  <button class="btn" onclick="sendSignupOtp('doctorSignupStep')">Send OTP</button>
+
+  <div class="back-link" onclick="showStep('methodStep')">← Back</div>
+</div>
+
+
+
+<!-- STEP 3D: GOVERNMENT SIGNUP -->
+<div id="govSignupStep" class="card step hidden">
+  <h1 class="h1">Gov Sign Up</h1>
+
+  <input class="input" placeholder="User Name" required>
+  <input class="input" placeholder="Gmail" required>
+  <input class="input" placeholder="Phone No" required>
+  <input class="input" placeholder="District" required>
+  <input class="input" placeholder="Occupation" required>
+  <input class="input" placeholder="Registered ID" required>
+
+  <button class="btn" onclick="sendSignupOtp('govSignupStep')">Send OTP</button>
+
+  <div class="back-link" onclick="showStep('methodStep')">← Back</div>
+</div>
+
+
+
+<!-- STEP 4: OTP PAGE -->
+<div id="otpStep" class="card step hidden">
+  <h1 class="h1">Enter OTP</h1>
+  <p class="p-muted">Enter the OTP sent to your phone or email</p>
+
+  <input id="otpInput" class="input" placeholder="Enter OTP">
+
+  <button class="btn" onclick="verifyOtpAndContinue()">Verify</button>
+
+  <div class="back-link" onclick="showStep('methodStep')">← Back</div>
+</div>
+
+
+<!-- TOAST BOX -->
+<div id="appToast" class="toast"></div>
+
+
+<script src="../../js/auth.js"></script>
+</body>
+</html>

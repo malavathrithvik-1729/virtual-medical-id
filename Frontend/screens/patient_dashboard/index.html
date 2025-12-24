@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Dashboard | V-Med ID</title>
+
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-root">
+
+  <!-- SIDEBAR -->
+  <aside id="sideBar" class="sidebar">
+
+    <div class="sidebar-header">
+      <span class="brand">V-Med</span>
+      <button id="collapseBtn" class="collapse-btn">☰</button>
+    </div>
+
+    <div class="profile-box">
+      <img src="../../assets/images/logo.jpg" class="avatar">
+      <div class="profile-info">
+        <strong>Rithvik1729</strong>
+        <div class="small">Patient • Age 21</div>
+        <div class="small">VMED-000123</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-target="home">
+        <span class="icon">🏠</span>
+        <span class="nav-text">Home</span>
+      </button>
+
+      <button class="nav-item" data-target="meds">
+        <span class="icon">💊</span>
+        <span class="nav-text">Current Medications</span>
+      </button>
+
+      <button class="nav-item" data-target="history">
+        <span class="icon">📜</span>
+        <span class="nav-text">History</span>
+      </button>
+
+      <button class="nav-item" data-target="ai">
+        <span class="icon">🤖</span>
+        <span class="nav-text">AI Suggestions</span>
+      </button>
+
+      <button class="nav-item" data-target="settings">
+        <span class="icon">⚙️</span>
+        <span class="nav-text">Settings</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+    </div>
+
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+<!-- HOME -->
+<section id="home" class="pane">
+
+  <!-- HEADER -->
+  <div class="home-header">
+    <div>
+      <h2 id="greeting">Good Morning, <span class="highlight">Rithvik</span> 👋</h2>
+      <div class="small muted">Last synced: <span id="lastSync">Today 9:30 AM</span></div>
+    </div>
+
+    <div class="status-badge stable">
+      Stable ✅
+    </div>
+  </div>
+
+  <!-- VITALS -->
+  <div class="vitals-grid">
+    <div class="vital-card">
+      <span class="icon">🫀</span>
+      <div class="vital-name">BP</div>
+      <div class="vital-value">120/80</div>
+      <div class="vital-range">Normal</div>
+    </div>
+
+    <div class="vital-card">
+      <span class="icon">🍬</span>
+      <div class="vital-name">Sugar</div>
+      <div class="vital-value">98 mg/dL</div>
+      <div class="vital-range">Normal</div>
+    </div>
+
+    <div class="vital-card">
+      <span class="icon">❤️</span>
+      <div class="vital-name">Heart Rate</div>
+      <div class="vital-value">72 bpm</div>
+      <div class="vital-range">Normal</div>
+    </div>
+
+    <div class="vital-card">
+      <span class="icon">🧮</span>
+      <div class="vital-name">BMI</div>
+      <div class="vital-value">22.5</div>
+      <div class="vital-range">Healthy</div>
+    </div>
+
+    <div class="vital-card">
+      <span class="icon">🩸</span>
+      <div class="vital-name">Blood Group</div>
+      <div class="vital-value">O+</div>
+    </div>
+  </div>
+
+  <!-- ALERTS -->
+  <div class="card alert-card success">
+    ✅ No urgent alerts today. Keep maintaining your routine.
+  </div>
+
+  <!-- TASKS + AI -->
+  <div class="two-col">
+
+    <div class="card">
+      <h3>📌 Today’s Tasks</h3>
+      <ul class="task-list">
+        <li>☐ Take Vitamin D</li>
+        <li>☐ 30 min walk</li>
+        <li>☐ Drink 2L water</li>
+      </ul>
+    </div>
+
+    <div class="card ai-card">
+      <h3>🤖 AI Insight</h3>
+      <p>Your vitals have remained stable for the last 7 days. Continue your current routine.</p>
+    </div>
+
+  </div>
+
+  <!-- QUICK ACTIONS -->
+  <div class="quick-actions">
+    <button class="action-btn" onclick="openAddRecord()">➕ Add Record</button>
+    <button class="action-btn danger" onclick="openEmergency()">🚑 Emergency</button>
+    <button class="action-btn" onclick="openShareID()">📤 Share ID</button>
+  </div>
+
+  <!-- THOUGHT -->
+  <div class="thought-card">
+    <h3>Thought of the Day</h3>
+    <p id="thoughtText">“A healthy outside starts from the inside.”</p>
+  </div>
+
+</section>
+<!-- CURRENT MEDICATIONS -->
+<section id="meds" class="pane">
+
+  <!-- HEADER -->
+  <div class="card">
+    <h2>💊 Current Medications</h2>
+    <p class="muted">Your active medicines and today’s schedule</p>
+
+    <div class="med-schedule">
+      <div class="schedule-box">🌅 Morning<br><strong>1</strong></div>
+      <div class="schedule-box">🌞 Afternoon<br><strong>0</strong></div>
+      <div class="schedule-box">🌙 Night<br><strong>1</strong></div>
+    </div>
+  </div>
+
+  <!-- MEDICATION CARD -->
+  <div class="med-card pending">
+    <div class="med-header">
+      <span class="med-icon">💨</span>
+      <div>
+        <h3>Salbutamol Inhaler</h3>
+        <span class="small muted">For asthma control</span>
+      </div>
+      <span class="status pending">Pending</span>
+    </div>
+
+    <div class="med-body">
+      <div>💊 Dose: <strong>2 puffs</strong></div>
+      <div>⏰ Time: <strong>Morning & Night</strong></div>
+      <div>📅 Duration: <strong>Ongoing</strong></div>
+    </div>
+
+ <div class="med-actions">
+  <button class="btn" onclick="markTaken(this)">✔ Mark Taken</button>
+  <button class="btn ghost" onclick="setReminder()">⏰ Reminder</button>
+</div>
+  </div>
+
+  <!-- MEDICATION CARD -->
+  <div class="med-card taken">
+    <div class="med-header">
+      <span class="med-icon">💊</span>
+      <div>
+        <h3>Vitamin D</h3>
+        <span class="small muted">Bone & immunity support</span>
+      </div>
+      <span class="status taken">Taken</span>
+    </div>
+
+    <div class="med-body">
+      <div>💊 Dose: <strong>1 tablet</strong></div>
+      <div>⏰ Time: <strong>Morning</strong></div>
+      <div>📅 Duration: <strong>30 days</strong></div>
+    </div>
+
+<div class="med-actions">
+  <button class="btn ghost" disabled>✔ Already Taken</button>
+</div>
+  </div>
+
+  <!-- ADD MEDICATION -->
+  <div class="add-med-card">
+    <button class="btn" onclick="openAddMedication()">➕ Add New Medication</button>
+  </div>
+
+</section>
+<!-- HISTORY -->
+<section id="history" class="pane hidden">
+
+  <!-- HEADER -->
+  <div class="card">
+    <h2>📜 Medical History</h2>
+    <p class="muted">Your complete medical timeline</p>
+
+    <!-- SEARCH + FILTER -->
+    <div class="history-controls">
+      <input id="historySearch" class="input" placeholder="🔍 Search history (doctor, test, hospital)">
+      <select id="historyFilter" class="input">
+        <option value="all">All</option>
+        <option value="visit">Doctor Visits</option>
+        <option value="test">Lab Tests</option>
+        <option value="hospital">Hospitalization</option>
+        <option value="vaccine">Vaccination</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- YEAR -->
+  <div class="history-year">2025</div>
+
+  <!-- EVENT -->
+  <div class="history-event visit">
+    <div class="event-icon">🩺</div>
+    <div class="event-content">
+      <h3>Doctor Visit – Cardiology</h3>
+      <div class="small muted">10 Feb 2025 • Dr. Srinivas</div>
+      <p>Blood pressure reviewed. Medication continued.</p>
+      <span class="badge completed">Completed</span>
+    </div>
+  </div>
+
+  <div class="history-event test">
+    <div class="event-icon">🧪</div>
+    <div class="event-content">
+      <h3>Blood Test</h3>
+      <div class="small muted">02 Jan 2025 • City Diagnostics</div>
+      <p>CBC, Lipid Profile – Normal</p>
+      <button class="btn ghost" onclick="openReport()">📄 View Report</button>
+    </div>
+  </div>
+
+  <!-- YEAR -->
+  <div class="history-year">2024</div>
+
+  <div class="history-event hospital">
+    <div class="event-icon">🏥</div>
+    <div class="event-content">
+      <h3>Hospital Admission</h3>
+      <div class="small muted">18 Dec 2024 • Apollo Hospital</div>
+      <p>Asthma exacerbation. Observed for 2 days.</p>
+      <span class="badge completed">Completed</span>
+    </div>
+  </div>
+
+  <div class="history-event vaccine">
+    <div class="event-icon">💉</div>
+    <div class="event-content">
+      <h3>Vaccination</h3>
+      <div class="small muted">05 Nov 2024 • Govt Health Center</div>
+      <p>Influenza vaccine administered.</p>
+      <span class="badge completed">Completed</span>
+    </div>
+  </div>
+
+  <!-- AI SUMMARY -->
+  <div class="card ai-summary">
+    <h3>🤖 AI History Summary</h3>
+    <p>
+      In the last 6 months, you had <strong>2 doctor visits</strong> and
+      <strong>1 lab test</strong>. No critical patterns detected.
+    </p>
+  </div>
+
+</section>
+<!-- AI SUGGESTIONS -->
+<section id="ai" class="pane hidden">
+
+  <!-- HEADER -->
+  <div class="card">
+    <h2>🤖 AI Health Suggestions</h2>
+    <p class="muted">Personalized insights based on your health data</p>
+  </div>
+
+  <!-- AI SUGGESTION CARDS -->
+  <div class="ai-cards">
+
+    <div class="ai-card">
+      <span class="ai-icon">🧘</span>
+      <div>
+        <h3>Lifestyle Suggestion</h3>
+        <p>Try a 30-minute walk daily to maintain stable blood pressure.</p>
+        <span class="ai-tag lifestyle">Lifestyle</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <span class="ai-icon">💊</span>
+      <div>
+        <h3>Medication Reminder</h3>
+        <p>Take your inhaler regularly in the morning and night.</p>
+        <span class="ai-tag medication">Medication</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <span class="ai-icon">⚠️</span>
+      <div>
+        <h3>Health Alert</h3>
+        <p>Your sugar levels were slightly high last month. Monitor regularly.</p>
+        <span class="ai-tag alert">Alert</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ASK AI -->
+  <div class="card ask-ai">
+    <h3>💬 Ask AI a Question</h3>
+    <p class="muted">You can ask health-related questions (demo only)</p>
+
+    <textarea id="aiQuestion" class="input" rows="3" placeholder="Type your question here..."></textarea>
+    <button class="btn" onclick="askAI()">Ask AI</button>
+
+    <div id="aiResponse" class="ai-response hidden"></div>
+  </div>
+
+<script>
+  function askAI(){
+    const q = document.getElementById("aiQuestion").value.trim();
+    const res = document.getElementById("aiResponse");
+
+    if(q === ""){
+      alert("Please type a question");
+      return;
+    }
+
+    // Dummy AI response
+    res.innerHTML = "🤖 AI Response: Based on your recent health data, maintaining a balanced diet and regular exercise is recommended.";
+    res.classList.remove("hidden");
+  }
+</script>
+
+<script>
+  function openAddRecord(){
+    document.getElementById("addRecordModal").classList.remove("hidden");
+  }
+
+  function closeAddRecord(){
+    document.getElementById("addRecordModal").classList.add("hidden");
+    resetRecordForm();
+  }
+
+  function resetRecordForm(){
+    document.getElementById("recordType").value = "";
+    document.getElementById("bpInput").classList.add("hidden");
+    document.getElementById("sugarInput").classList.add("hidden");
+  }
+
+  document.getElementById("recordType").addEventListener("change", function(){
+    const type = this.value;
+    document.getElementById("bpInput").classList.add("hidden");
+    document.getElementById("sugarInput").classList.add("hidden");
+
+    if(type === "bp"){
+      document.getElementById("bpInput").classList.remove("hidden");
+    }
+    if(type === "sugar"){
+      document.getElementById("sugarInput").classList.remove("hidden");
+    }
+  });
+
+  function saveRecord(){
+    const type = document.getElementById("recordType").value;
+    if(!type){
+      alert("Please select record type");
+      return;
+    }
+
+    alert("Record added successfully (demo)");
+    closeAddRecord();
+  }
+
+  // EMERGENCY FUNCTIONS
+function openEmergency(){
+  document.getElementById("emergencyModal").classList.remove("hidden");
+}
+
+function closeEmergency(){
+  document.getElementById("emergencyModal").classList.add("hidden");
+}
+
+function callEmergency(){
+  alert("Calling emergency services... (demo)");
+  closeEmergency();
+}
+
+// SHARE ID FUNCTIONS
+function openShareID(){
+  document.getElementById("shareIdModal").classList.remove("hidden");
+}
+
+function closeShareID(){
+  document.getElementById("shareIdModal").classList.add("hidden");
+}
+
+function copyHealthID(){
+  const idText = "VMED-000123";
+  navigator.clipboard.writeText(idText);
+  alert("Health ID copied: " + idText);
+}
+
+// MARK TAKEN
+function markTaken(btn){
+  const card = btn.closest(".med-card");
+  card.classList.remove("pending");
+  card.classList.add("taken");
+
+  card.querySelector(".status").innerText = "Taken";
+  card.querySelector(".status").classList.remove("pending");
+  card.querySelector(".status").classList.add("taken");
+
+  btn.disabled = true;
+  btn.innerText = "✔ Taken";
+
+  alert("Marked as taken (demo)");
+}
+
+// REMINDER
+function setReminder(){
+  alert("Reminder set successfully (demo)");
+}
+
+// ADD MEDICATION
+function openAddMedication(){
+  document.getElementById("addMedicationModal").classList.remove("hidden");
+}
+
+function closeAddMedication(){
+  document.getElementById("addMedicationModal").classList.add("hidden");
+}
+
+function saveMedication(){
+  const name = document.getElementById("medName").value.trim();
+  const dose = document.getElementById("medDose").value.trim();
+  const time = document.getElementById("medTime").value;
+
+  if(!name || !dose || !time){
+    alert("Please fill all fields");
+    return;
+  }
+
+  alert("Medication added successfully (demo)");
+  closeAddMedication();
+}
+
+// VIEW REPORT FUNCTIONS
+function openReport(){
+  document.getElementById("viewReportModal").classList.remove("hidden");
+}
+
+function closeReport(){
+  document.getElementById("viewReportModal").classList.add("hidden");
+}
+
+function downloadReport(){
+  alert("Downloading report... (demo)");
+}
+
+</script>
+
+  <!-- DISCLAIMER -->
+  <div class="ai-disclaimer">
+    ⚠️ AI suggestions are for guidance only and do not replace professional medical advice.
+  </div>
+
+</section>
+<!-- SETTINGS -->
+<section id="settings" class="pane hidden">
+
+  <!-- HEADER -->
+  <div class="card">
+    <h2>⚙️ Settings</h2>
+    <p class="muted">Manage your account, privacy, and preferences</p>
+  </div>
+
+  <!-- ACCOUNT INFO -->
+  <div class="card">
+    <h3>👤 Account Information</h3>
+    <div class="setting-row"><strong>Name:</strong> Rithvik</div>
+    <div class="setting-row"><strong>VMED ID:</strong> VMED-000123</div>
+    <div class="setting-row"><strong>Role:</strong> Patient</div>
+    <div class="setting-row"><strong>Phone:</strong> ********21</div>
+    <div class="setting-row"><strong>Email:</strong> r*****@gmail.com</div>
+  </div>
+
+  <!-- PRIVACY -->
+  <div class="card">
+    <h3>🔒 Privacy & Data Access</h3>
+
+    <label class="toggle-row">
+      <span>Allow doctors to view my records</span>
+      <input type="checkbox" checked>
+    </label>
+
+    <label class="toggle-row">
+      <span>Allow government access for public health</span>
+      <input type="checkbox" checked>
+    </label>
+
+    <label class="toggle-row">
+      <span>Allow anonymous data for research</span>
+      <input type="checkbox">
+    </label>
+  </div>
+
+  <!-- NOTIFICATIONS -->
+  <div class="card">
+    <h3>🔔 Notifications</h3>
+
+    <label class="toggle-row">
+      <span>Medication reminders</span>
+      <input type="checkbox" checked>
+    </label>
+
+    <label class="toggle-row">
+      <span>Appointment alerts</span>
+      <input type="checkbox" checked>
+    </label>
+
+    <label class="toggle-row">
+      <span>AI health suggestions</span>
+      <input type="checkbox">
+    </label>
+  </div>
+
+  <!-- SECURITY -->
+  <div class="card">
+    <h3>🔐 Security</h3>
+    <button class="btn ghost">Change Password</button>
+    <button class="btn ghost">Enable OTP on every login</button>
+    <button class="btn ghost">View Login Activity</button>
+  </div>
+
+  <!-- DATA -->
+  <div class="card">
+    <h3>📄 Data & Reports</h3>
+    <button class="btn">⬇ Export Medical Data</button>
+    <button class="btn ghost">📤 Share Health ID</button>
+  </div>
+
+  <!-- PREFERENCES -->
+  <div class="card">
+    <h3>🌐 App Preferences</h3>
+    <label class="setting-row">
+      Language:
+      <select class="input">
+        <option>English</option>
+        <option>Hindi</option>
+        <option>Telugu</option>
+      </select>
+    </label>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="card">
+    <h3>ℹ️ About</h3>
+    <p class="small muted">V-Med ID • Version 1.0</p>
+    <p class="small muted">A unified digital health identity system.</p>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="card danger-zone">
+    <h3>🚨 Danger Zone</h3>
+    <button class="btn danger" onclick="logout()">🚪 Logout</button>
+    <button class="btn danger ghost">❌ Deactivate Account</button>
+  </div>
+
+</section>
+
+<script>
+  const navItems = document.querySelectorAll(".nav-item");
+  const panes = document.querySelectorAll(".pane");
+  const sidebar = document.getElementById("sideBar");
+  const collapseBtn = document.getElementById("collapseBtn");
+
+  // NAVIGATION
+  navItems.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const target = btn.dataset.target;
+
+      // Activate nav
+      navItems.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      // Show correct pane
+      panes.forEach(p => p.classList.remove("active"));
+      document.getElementById(target).classList.add("active");
+    });
+  });
+
+  // COLLAPSE SIDEBAR
+  collapseBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("collapsed");
+  });
+
+  // LOGOUT
+  function logout(){
+    localStorage.clear();
+    window.location.href = "../login/login.html";
+  }
+</script>
+
+<!-- ADD RECORD MODAL -->
+<div id="addRecordModal" class="modal hidden">
+
+  <div class="modal-box">
+    <h2>➕ Add Health Record</h2>
+
+    <label class="small">Record Type</label>
+    <select id="recordType" class="input">
+      <option value="">Select</option>
+      <option value="bp">Blood Pressure</option>
+      <option value="sugar">Sugar</option>
+    </select>
+
+    <div id="bpInput" class="hidden">
+      <input class="input" placeholder="Systolic (e.g. 120)">
+      <input class="input" placeholder="Diastolic (e.g. 80)">
+    </div>
+
+    <div id="sugarInput" class="hidden">
+      <input class="input" placeholder="Sugar level (mg/dL)">
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" onclick="saveRecord()">Save</button>
+      <button class="btn ghost" onclick="closeAddRecord()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+<!-- EMERGENCY MODAL -->
+<div id="emergencyModal" class="modal hidden">
+
+  <div class="modal-box">
+    <h2 style="color:#c62828">🚨 Emergency Alert</h2>
+
+    <p>
+      Emergency mode activated.<br>
+      Help will be contacted immediately.
+    </p>
+
+    <div class="card" style="margin-top:10px">
+      <strong>Emergency Contact:</strong><br>
+      📞 108 (Ambulance)
+    </div>
+
+    <div class="card" style="margin-top:10px">
+      <strong>Your Health ID:</strong><br>
+      VMED-000123
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn danger" onclick="callEmergency()">📞 Call Emergency</button>
+      <button class="btn ghost" onclick="closeEmergency()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- SHARE ID MODAL -->
+<div id="shareIdModal" class="modal hidden">
+
+  <div class="modal-box">
+    <h2>📤 Share Health ID</h2>
+
+    <div class="card" style="margin-top:10px">
+      <strong>Name:</strong> Rithvik1729<br>
+      <strong>Role:</strong> Patient<br>
+      <strong>Health ID:</strong>
+      <div id="healthIdBox" style="margin-top:6px;font-weight:bold">
+        VMED-000123
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:10px;text-align:center">
+      <div style="font-size:12px;color:#666">QR Code (Demo)</div>
+      <div style="margin-top:8px;padding:16px;border:2px dashed #1E88E5;border-radius:8px">
+        ▢▢▢▢▢▢▢<br>
+        ▢▢▢▢▢▢▢<br>
+        ▢▢▢▢▢▢▢
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" onclick="copyHealthID()">📋 Copy ID</button>
+      <button class="btn ghost" onclick="closeShareID()">Close</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- ADD MEDICATION MODAL -->
+<div id="addMedicationModal" class="modal hidden">
+
+  <div class="modal-box">
+    <h2>➕ Add New Medication</h2>
+
+    <input class="input" id="medName" placeholder="Medicine Name">
+    <input class="input" id="medDose" placeholder="Dose (e.g. 1 tablet)">
+    
+    <select class="input" id="medTime">
+      <option value="">Select Time</option>
+      <option>Morning</option>
+      <option>Afternoon</option>
+      <option>Night</option>
+    </select>
+
+    <div class="modal-actions">
+      <button class="btn" onclick="saveMedication()">Save</button>
+      <button class="btn ghost" onclick="closeAddMedication()">Cancel</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- VIEW REPORT MODAL -->
+<div id="viewReportModal" class="modal hidden">
+
+  <div class="modal-box">
+    <h2>📄 Medical Report</h2>
+
+    <div class="card" style="margin-top:10px">
+      <strong>Report Name:</strong> Blood Test<br>
+      <strong>Date:</strong> 02 Jan 2025<br>
+      <strong>Status:</strong> Normal
+    </div>
+
+    <div class="card" style="margin-top:10px;text-align:center">
+      <p style="color:#666">
+        Report preview will be available here.<br>
+        (PDF/Image viewer coming soon)
+      </p>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" onclick="downloadReport()">⬇ Download</button>
+      <button class="btn ghost" onclick="closeReport()">Close</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

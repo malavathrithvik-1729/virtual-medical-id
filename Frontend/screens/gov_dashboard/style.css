@@ -1,0 +1,187 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  background: #f4f6fa;
+  color: #111;
+}
+
+.dashboard-root {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  background: #0f172a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #1e293b;
+}
+
+.brand {
+  color: #38bdf8;
+}
+
+.role {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.sidebar-nav {
+  padding: 10px;
+  flex: 1;
+}
+
+.nav-item {
+  display: block;
+  padding: 12px 15px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #e5e7eb;
+}
+
+.nav-item:hover {
+  background: #1e293b;
+}
+
+.nav-item.active {
+  background: #2563eb;
+}
+
+.nav-item.logout {
+  background: #7f1d1d;
+  margin-top: auto;
+}
+
+/* MAIN */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* PANES */
+.pane {
+  display: none;
+}
+
+.pane.active {
+  display: block;
+}
+
+/* HOME */
+.greeting {
+  margin-bottom: 30px;
+}
+
+.greeting h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.greeting p {
+  max-width: 600px;
+  color: #555;
+}
+
+/* VITALS */
+.vitals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.vital-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+}
+
+.label {
+  font-size: 13px;
+  color: #555;
+}
+
+.vital-card h2 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+
+.sub {
+  font-size: 13px;
+  color: #666;
+}
+
+.trend.up { color: #16a34a; }
+.trend.down { color: #dc2626; }
+
+.vital-card.alert {
+  border-left: 5px solid #dc2626;
+}
+
+.vital-card.warning {
+  border-left: 5px solid #f59e0b;
+}
+
+/* ================= LOGOUT MODAL ================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 25px;
+  border-radius: 14px;
+  width: 360px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+  margin-bottom: 10px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.secondary {
+  background: #e5e7eb;
+}
+
+.btn.danger {
+  background: #dc2626;
+  color: white;
+}

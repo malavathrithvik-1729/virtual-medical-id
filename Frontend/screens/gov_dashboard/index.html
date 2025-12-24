@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Government Dashboard | V-Med ID</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-root">
+
+  <!-- ================= LEFT SIDEBAR ================= -->
+  <aside class="sidebar">
+
+    <div class="sidebar-header">
+      <h2 class="brand">V-Med</h2>
+      <span class="role">Government Dashboard</span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="nav-item active" data-target="home">🏠 Home</a>
+      <a class="nav-item" data-target="trends">📊 Trends</a>
+      <a class="nav-item" data-target="ai">🤖 AI Prediction</a>
+      <a class="nav-item" data-target="settings">⚙️ Settings</a>
+      <a class="nav-item logout">🚪 Logout</a>
+    </nav>
+
+  </aside>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="main-content">
+
+    <!-- ========== HOME PANE ========== -->
+    <section class="pane active" id="home">
+
+      <div class="greeting">
+        <h1>Welcome, Health Authority 👋</h1>
+        <p>
+          This dashboard presents anonymized, real-time national
+          healthcare insights powered by AI.
+        </p>
+      </div>
+
+      <div class="vitals-grid">
+
+        <div class="vital-card">
+          <span class="label">Active Cases</span>
+          <h2>1,24,580</h2>
+          <span class="trend up">▲ 3.2%</span>
+        </div>
+
+        <div class="vital-card">
+          <span class="label">Hospitals Reporting</span>
+          <h2>3,842</h2>
+          <span class="sub">Nationwide</span>
+        </div>
+
+        <div class="vital-card alert">
+          <span class="label">Critical Alerts</span>
+          <h2>18</h2>
+          <span class="trend down">▼ 2 resolved</span>
+        </div>
+
+        <div class="vital-card warning">
+          <span class="label">Resource Index</span>
+          <h2>0.67</h2>
+          <span class="sub">Moderate load</span>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- EMPTY PANES (PLACEHOLDERS, SAFE) -->
+    <!-- ========== TRENDS PANE ========== -->
+<section class="pane" id="trends">
+
+  <div class="greeting">
+    <h1>Health Trends Overview 📊</h1>
+    <p>
+      Weekly and monthly disease trends derived from anonymized
+      national healthcare data.
+    </p>
+  </div>
+
+  <!-- TREND SUMMARY -->
+  <div class="vitals-grid">
+
+    <div class="vital-card">
+      <span class="label">Weekly Case Growth</span>
+      <h2>+3.2%</h2>
+      <span class="trend up">Increasing</span>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Hospital Occupancy</span>
+      <h2>71%</h2>
+      <span class="sub">Average nationwide</span>
+    </div>
+
+    <div class="vital-card warning">
+      <span class="label">Seasonal Risk Index</span>
+      <h2>0.74</h2>
+      <span class="sub">Monsoon impact</span>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Recovery Rate</span>
+      <h2>94.6%</h2>
+      <span class="trend up">Stable</span>
+    </div>
+
+  </div>
+
+  <!-- TREND DETAILS -->
+  <div style="margin-top:30px;" class="vitals-grid">
+
+    <div class="vital-card">
+      <span class="label">Top Rising Diseases</span>
+      <ul style="margin-top:10px; line-height:1.8;">
+        <li>Dengue Fever ▲</li>
+        <li>Respiratory Infections ▲</li>
+        <li>Heat-related Illness ▲</li>
+      </ul>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Declining Diseases</span>
+      <ul style="margin-top:10px; line-height:1.8;">
+        <li>Seasonal Influenza ▼</li>
+        <li>Viral Fever ▼</li>
+        <li>Gastroenteritis ▬</li>
+      </ul>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Most Affected Regions</span>
+      <ul style="margin-top:10px; line-height:1.8;">
+        <li>Eastern Region – High</li>
+        <li>Northern Region – Moderate</li>
+        <li>Central Region – Monitoring</li>
+      </ul>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">AI Trend Note</span>
+      <p style="margin-top:10px; font-size:14px; color:#555;">
+        Disease patterns show strong correlation with climate
+        and population density. Preventive actions recommended
+        in high-growth zones.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+    <!-- ========== AI PREDICTION PANE ========== -->
+<section class="pane" id="ai">
+
+  <div class="greeting">
+    <h1>AI Health Predictions 🤖</h1>
+    <p>
+      Forecasts generated using anonymized population data,
+      historical trends, and seasonal patterns.
+    </p>
+  </div>
+
+  <!-- AI OVERVIEW -->
+  <div class="vitals-grid">
+
+    <div class="vital-card alert">
+      <span class="label">Outbreak Probability</span>
+      <h2>68%</h2>
+      <span class="trend up">High Risk</span>
+    </div>
+
+    <div class="vital-card warning">
+      <span class="label">Hospital Stress Forecast</span>
+      <h2>0.78</h2>
+      <span class="sub">Next 14 days</span>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Resource Sufficiency</span>
+      <h2>82%</h2>
+      <span class="trend down">Needs monitoring</span>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Recovery Stability</span>
+      <h2>92%</h2>
+      <span class="trend up">Stable</span>
+    </div>
+
+  </div>
+
+  <!-- AI INSIGHTS -->
+  <div class="vitals-grid" style="margin-top:30px;">
+
+    <div class="vital-card">
+      <span class="label">Predicted High-Risk Diseases</span>
+      <ul style="margin-top:10px; line-height:1.8;">
+        <li>Dengue Fever ▲</li>
+        <li>Respiratory Infections ▲</li>
+        <li>Heat-related Illness ▲</li>
+        <li>Water-borne Diseases ▬</li>
+      </ul>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">High-Risk Regions</span>
+      <ul style="margin-top:10px; line-height:1.8;">
+        <li>Eastern Region – Critical</li>
+        <li>Northern Region – High</li>
+        <li>Central Region – Moderate</li>
+      </ul>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">AI Confidence Score</span>
+      <h2>0.89</h2>
+      <span class="sub">Model reliability</span>
+    </div>
+
+    <div class="vital-card">
+      <span class="label">Prediction Horizon</span>
+      <h2>14 Days</h2>
+      <span class="sub">Rolling forecast window</span>
+    </div>
+
+  </div>
+
+  <!-- AI RECOMMENDATION -->
+  <div class="vital-card" style="margin-top:30px;">
+    <span class="label">AI Recommended Actions</span>
+    <p style="margin-top:10px; font-size:14px; color:#555;">
+      Increase vector control measures, pre-position oxygen
+      reserves, and expand diagnostic capacity in flagged
+      regions. Daily monitoring advised for early intervention.
+    </p>
+  </div>
+
+</section>
+    <!-- ========== SETTINGS PANE ========== -->
+<section class="pane" id="settings">
+
+  <div class="greeting">
+    <h1>System Settings ⚙️</h1>
+    <p>
+      Configure dashboard preferences, AI analytics behavior,
+      and alert thresholds. All data remains anonymized.
+    </p>
+  </div>
+
+  <div class="vitals-grid">
+
+    <!-- DASHBOARD SETTINGS -->
+    <div class="vital-card">
+      <span class="label">Dashboard Preferences</span>
+      <ul style="margin-top:12px; line-height:1.8;">
+        <li>✔ Default Landing Page: Home</li>
+        <li>✔ Theme: Light (Government Standard)</li>
+        <li>✔ Auto Refresh: Every 10 minutes</li>
+      </ul>
+    </div>
+
+    <!-- AI SETTINGS -->
+    <div class="vital-card">
+      <span class="label">AI & Analytics Controls</span>
+      <ul style="margin-top:12px; line-height:1.8;">
+        <li>✔ Population AI: Enabled</li>
+        <li>✔ Forecast Window: 14 days</li>
+        <li>✔ Confidence Threshold: ≥ 85%</li>
+      </ul>
+    </div>
+
+    <!-- ALERT SETTINGS -->
+    <div class="vital-card warning">
+      <span class="label">Alert Configuration</span>
+      <ul style="margin-top:12px; line-height:1.8;">
+        <li>⚠ Critical Alert Level: High</li>
+        <li>⚠ Regional Alerts: Enabled</li>
+        <li>⚠ Resource Shortage Alerts: Enabled</li>
+      </ul>
+    </div>
+
+    <!-- DATA SECURITY -->
+    <div class="vital-card">
+      <span class="label">Data Privacy & Security</span>
+      <ul style="margin-top:12px; line-height:1.8;">
+        <li>🔒 Patient Identifiers: Not Stored</li>
+        <li>🔒 Data Aggregation: Enabled</li>
+        <li>🔒 Encryption: AES-256</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- SYSTEM INFO -->
+  <div class="vital-card" style="margin-top:30px;">
+    <span class="label">System Information</span>
+    <p style="margin-top:10px; font-size:14px; color:#555;">
+      V-Med ID Government Dashboard<br>
+      Version: 1.0 (Prototype)<br>
+      Data Source: Authorized Hospitals & Labs<br>
+      AI Engine: Population-Level Predictive Analytics
+    </p>
+  </div>
+
+</section>
+
+  </main>
+
+</div>
+
+<!-- ================= JS (SAFE NAVIGATION) ================= -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const navItems = document.querySelectorAll(".nav-item[data-target]");
+  const panes = document.querySelectorAll(".pane");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+
+      const targetId = item.dataset.target;
+      const targetPane = document.getElementById(targetId);
+
+      if (!targetPane) return;
+
+      // Reset nav
+      navItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      // Reset panes
+      panes.forEach(p => p.classList.remove("active"));
+      targetPane.classList.add("active");
+    });
+  });
+
+});
+</script>
+<!-- ================= LOGOUT MODAL ================= -->
+<div class="modal hidden" id="logoutModal">
+  <div class="modal-box">
+    <h3>Confirm Logout</h3>
+    <p class="muted">
+      Are you sure you want to logout from the Government Dashboard?
+    </p>
+
+    <div class="modal-actions">
+      <button id="cancelLogout" class="btn secondary">Cancel</button>
+      <button id="confirmLogout" class="btn danger">Logout</button>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* --------- PANE NAVIGATION --------- */
+  const navItems = document.querySelectorAll(".nav-item[data-target]");
+  const panes = document.querySelectorAll(".pane");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const targetId = item.dataset.target;
+      const targetPane = document.getElementById(targetId);
+      if (!targetPane) return;
+
+      navItems.forEach(i => i.classList.remove("active"));
+      item.classList.add("active");
+
+      panes.forEach(p => p.classList.remove("active"));
+      targetPane.classList.add("active");
+    });
+  });
+
+  /* --------- LOGOUT LOGIC --------- */
+  const logoutBtn = document.querySelector(".nav-item.logout");
+  const logoutModal = document.getElementById("logoutModal");
+  const cancelLogout = document.getElementById("cancelLogout");
+  const confirmLogout = document.getElementById("confirmLogout");
+
+  logoutBtn.addEventListener("click", () => {
+    logoutModal.classList.remove("hidden");
+  });
+
+  cancelLogout.addEventListener("click", () => {
+    logoutModal.classList.add("hidden");
+  });
+
+  confirmLogout.addEventListener("click", () => {
+    // redirect after logout
+    window.location.href = "../login/login.html";
+    // OR: window.location.href = "login.html";
+  });
+
+});
+</script>
+
+</body>
+</html>

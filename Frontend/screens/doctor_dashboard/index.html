@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctor Dashboard | V-Med</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SAME CSS STACK AS PATIENT DASHBOARD -->
+  <link rel="stylesheet" href="../../css/global.css" />
+  <link rel="stylesheet" href="../patient_dashboard/style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="dashboard-root">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-header">
+      <span class="brand">V-Med</span>
+      <button class="collapse-btn">☰</button>
+    </div>
+
+    <div class="profile-box">
+      <img src="../../assets/images/logo.jpg" class="avatar" />
+      <div class="profile-info">
+        <strong>Dr. Srinivas</strong>
+        <div class="small">Cardiologist</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-item active" data-pane="home">
+        <span class="icon">🏠</span>
+        <span class="nav-text">Home</span>
+      </button>
+
+      <button class="nav-item" data-pane="history">
+        <span class="icon">📜</span>
+        <span class="nav-text">History</span>
+      </button>
+
+      <button class="nav-item" data-pane="ongoing">
+        <span class="icon">🩺</span>
+        <span class="nav-text">Ongoing</span>
+      </button>
+
+      <button class="nav-item" data-pane="ai">
+        <span class="icon">🤖</span>
+        <span class="nav-text">AI Suggestions</span>
+      </button>
+
+      <button class="nav-item" data-pane="settings">
+        <span class="icon">⚙️</span>
+        <span class="nav-text">Settings</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+<button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <!-- ================= HOME ================= -->
+    <section class="pane active" id="home">
+
+      <div class="home-header">
+        <div>
+          <h2>Good Morning, Doctor 👋</h2>
+          <p class="small muted">Last synced: Today 9:30 AM</p>
+        </div>
+        <span class="status-badge stable">On Duty</span>
+      </div>
+
+      <div class="vitals-grid">
+        <div class="vital-card">
+          <div class="vital-name">Patients Today</div>
+          <div class="vital-value">18</div>
+          <div class="vital-range">OPD & IPD</div>
+        </div>
+
+        <div class="vital-card">
+          <div class="vital-name">Ongoing</div>
+          <div class="vital-value">6</div>
+          <div class="vital-range">Active</div>
+        </div>
+
+        <div class="vital-card">
+          <div class="vital-name">Critical</div>
+          <div class="vital-value">2</div>
+          <div class="vital-range">Immediate care</div>
+        </div>
+
+        <div class="vital-card">
+          <div class="vital-name">Reviews</div>
+          <div class="vital-value">3</div>
+          <div class="vital-range">Today</div>
+        </div>
+      </div>
+
+      <div class="alert-card success">
+        ✅ No emergency alerts right now. Continue regular consultations.
+      </div>
+
+      <div class="two-col">
+        <div class="welcome-card">
+          <h3>Today’s Focus</h3>
+          <ul class="task-list">
+            <li>Review diabetic patients</li>
+            <li>Check cardiac follow-ups</li>
+            <li>Verify lab reports</li>
+          </ul>
+        </div>
+
+        <div class="thought-card">
+          <strong>AI Insight</strong>
+          <p class="small">
+            Patient recovery rate improved by 12% this week.
+          </p>
+        </div>
+      </div>
+
+      <div class="quick-actions">
+<button class="action-btn"
+        onclick="window.location.href='present_patients.html'">
+  View Present Patients
+</button>
+
+        <button class="action-btn danger">Emergency Mode</button>
+      </div>
+
+      <div class="thought-card">
+        <strong>Thought of the Day</strong>
+        <p class="small">
+          “Healing is a matter of time, but sometimes also opportunity.”
+        </p>
+      </div>
+
+    </section>
+
+    <!-- ================= HISTORY ================= -->
+    <section class="pane" id="history">
+
+      <div class="home-header">
+        <div>
+          <h2>Patient History</h2>
+          <p class="small muted">Previously treated cases</p>
+        </div>
+      </div>
+
+      <div class="welcome-card">
+        <div class="history-controls">
+          <input type="text" placeholder="Search by VMID, disease, hospital"
+            style="flex:1;padding:10px;border-radius:10px;border:1px solid #ddd;">
+          <select style="padding:10px;border-radius:10px;border:1px solid #ddd;">
+            <option>All</option>
+            <option>Recovered</option>
+            <option>Stable</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="history-year">2025</div>
+
+      <div class="history-event visit">
+        <div class="event-icon">🩺</div>
+        <div class="event-content">
+          <h3>VMID1021 – Hypertension</h3>
+          <p class="small">10 Feb 2025 · OPD</p>
+          <span class="badge completed">Recovered</span>
+        </div>
+      </div>
+
+      <div class="history-year">2024</div>
+
+      <div class="history-event hospital">
+        <div class="event-icon">🏥</div>
+        <div class="event-content">
+          <h3>VMID0978 – Cardiac Arrhythmia</h3>
+          <p class="small">18 Dec 2024 · Apollo Hospital</p>
+          <span class="badge completed">Stable</span>
+        </div>
+      </div>
+
+      <div class="thought-card ai-summary">
+        <strong>AI Case Summary</strong>
+        <p class="small">
+          24 patients treated in last 6 months. Recovery rate 87%.
+        </p>
+      </div>
+
+    </section>
+
+    <!-- PLACEHOLDERS -->
+<!-- ================= ONGOING TREATMENTS ================= -->
+<section class="pane" id="ongoing">
+
+  <!-- HEADER -->
+  <div class="home-header">
+    <div>
+      <h2>Ongoing Treatments</h2>
+      <p class="small muted">Patients currently under your care</p>
+    </div>
+    <span class="status-badge stable">Active</span>
+  </div>
+
+  <!-- SUMMARY CARDS (same style as vitals) -->
+  <div class="vitals-grid">
+    <div class="vital-card">
+      <div class="vital-name">Active Patients</div>
+      <div class="vital-value">6</div>
+      <div class="vital-range">Under treatment</div>
+    </div>
+
+    <div class="vital-card">
+      <div class="vital-name">Critical</div>
+      <div class="vital-value">2</div>
+      <div class="vital-range">Immediate care</div>
+    </div>
+
+    <div class="vital-card">
+      <div class="vital-name">Review Today</div>
+      <div class="vital-value">3</div>
+      <div class="vital-range">Scheduled</div>
+    </div>
+  </div>
+
+  <!-- ONGOING TREATMENT LIST -->
+  <h3 style="margin-bottom:10px;">Treatment List</h3>
+
+  <!-- TREATMENT CARD 1 -->
+  <div class="med-card pending">
+    <div class="med-header">
+      <div>
+        <strong>VMID1452 – Diabetes Mellitus</strong>
+        <p class="small">Medicine: Metformin</p>
+      </div>
+      <span class="status pending">Review</span>
+    </div>
+
+    <div class="med-body">
+      <div>Started: 10 Feb 2025</div>
+      <div>Next Checkup: 18 Feb 2025</div>
+      <div>Doctor: Dr. Srinivas</div>
+      <div>Status: Ongoing</div>
+    </div>
+
+    <div class="med-actions">
+      <button class="action-btn">View Patient</button>
+      <button class="action-btn">Update Treatment</button>
+      <button class="action-btn danger">Mark Critical</button>
+    </div>
+  </div>
+
+  <!-- TREATMENT CARD 2 -->
+  <div class="med-card taken">
+    <div class="med-header">
+      <div>
+        <strong>VMID1782 – Chest Pain</strong>
+        <p class="small">Medicine: Aspirin + ECG monitoring</p>
+      </div>
+      <span class="status taken">Stable</span>
+    </div>
+
+    <div class="med-body">
+      <div>Started: 12 Feb 2025</div>
+      <div>Next Checkup: 20 Feb 2025</div>
+      <div>Ward: Cardiology</div>
+      <div>Status: Improving</div>
+    </div>
+
+    <div class="med-actions">
+      <button class="action-btn">View Patient</button>
+      <button class="action-btn">Add Report</button>
+    </div>
+  </div>
+
+  <!-- AI ASSIST NOTE -->
+  <div class="thought-card ai-summary">
+    <strong>AI Ongoing Summary</strong>
+    <p class="small">
+      2 patients require close monitoring due to cardiac risk.
+      Diabetes treatment outcomes are within expected range.
+    </p>
+  </div>
+
+</section>
+
+<!-- ================= AI SUGGESTIONS ================= -->
+<section class="pane" id="ai">
+
+  <!-- HEADER -->
+  <div class="home-header">
+    <div>
+      <h2>AI Suggestions</h2>
+      <p class="small muted">Clinical decision support & risk insights</p>
+    </div>
+    <span class="status-badge stable">AI Active</span>
+  </div>
+
+  <!-- AI OVERVIEW (like vitals grid) -->
+  <div class="vitals-grid">
+    <div class="vital-card">
+      <div class="vital-name">Alerts</div>
+      <div class="vital-value">2</div>
+      <div class="vital-range">Require attention</div>
+    </div>
+
+    <div class="vital-card">
+      <div class="vital-name">Patients Analyzed</div>
+      <div class="vital-value">18</div>
+      <div class="vital-range">Today</div>
+    </div>
+
+    <div class="vital-card">
+      <div class="vital-name">Risk Level</div>
+      <div class="vital-value">Medium</div>
+      <div class="vital-range">Overall</div>
+    </div>
+  </div>
+
+  <!-- AI SUGGESTION CARDS -->
+  <div class="ai-cards">
+
+    <!-- HIGH PRIORITY ALERT -->
+    <div class="ai-card">
+      <div class="ai-icon">⚠️</div>
+      <div>
+        <strong>Possible Drug Interaction</strong>
+        <p class="small">
+          VMID1452 (Diabetes): Metformin + new BP medication
+          may increase risk of hypotension.
+        </p>
+        <span class="ai-tag alert">High Priority</span>
+      </div>
+    </div>
+
+    <!-- MEDIUM PRIORITY -->
+    <div class="ai-card">
+      <div class="ai-icon">🧠</div>
+      <div>
+        <strong>Missed Diagnostic Suggestion</strong>
+        <p class="small">
+          VMID1782 (Chest Pain): Consider ECG repeat and Troponin test
+          based on symptom progression.
+        </p>
+        <span class="ai-tag medication">Clinical</span>
+      </div>
+    </div>
+
+    <!-- LOW PRIORITY / TREND -->
+    <div class="ai-card">
+      <div class="ai-icon">📈</div>
+      <div>
+        <strong>Positive Treatment Trend</strong>
+        <p class="small">
+          Diabetic patients under your care show
+          12% improvement in glucose control over 7 days.
+        </p>
+        <span class="ai-tag lifestyle">Trend</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ASK AI SECTION (same style as patient) -->
+  <div class="ask-ai">
+    <h3>Ask AI</h3>
+    <p class="small muted">
+      Get evidence-based suggestions. Final decision is always yours.
+    </p>
+
+    <input
+      type="text"
+      placeholder="Ask AI about diagnosis, treatment, or risk..."
+      style="width:100%;padding:12px;border-radius:12px;border:1px solid #ddd;"
+    />
+
+    <div class="ai-response">
+      <strong>AI Response:</strong>
+      <p class="small">
+        Based on similar cases and current vitals, a conservative
+        medication adjustment with close monitoring is advised.
+      </p>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="ai-disclaimer">
+    ⚠️ AI suggestions are advisory only.
+    Clinical judgment and patient consent are mandatory.
+  </div>
+
+</section>
+
+<!-- ================= SETTINGS ================= -->
+<section class="pane" id="settings">
+
+  <!-- HEADER -->
+  <div class="home-header">
+    <div>
+      <h2>Settings</h2>
+      <p class="small muted">Manage preferences, permissions & security</p>
+    </div>
+  </div>
+
+  <!-- PROFILE SETTINGS -->
+  <div class="setting-group">
+    <h3>Doctor Profile</h3>
+
+    <div class="setting-row">
+      <span>Name</span>
+      <span class="muted">Dr. Srinivas</span>
+    </div>
+
+    <div class="setting-row">
+      <span>Specialization</span>
+      <span class="muted">Cardiology</span>
+    </div>
+
+    <div class="setting-row">
+      <span>Hospital</span>
+      <span class="muted">City Heart Hospital</span>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION SETTINGS -->
+  <div class="setting-group">
+    <h3>Notifications</h3>
+
+    <div class="toggle-row">
+      <span>Emergency Alerts</span>
+      <input type="checkbox" checked />
+    </div>
+
+    <div class="toggle-row">
+      <span>Patient Review Reminders</span>
+      <input type="checkbox" checked />
+    </div>
+
+    <div class="toggle-row">
+      <span>Lab Report Updates</span>
+      <input type="checkbox" />
+    </div>
+  </div>
+
+  <!-- AI SETTINGS -->
+  <div class="setting-group">
+    <h3>AI Assistance</h3>
+
+    <div class="toggle-row">
+      <span>Enable AI Suggestions</span>
+      <input type="checkbox" checked />
+    </div>
+
+    <div class="toggle-row">
+      <span>High-Risk Case Alerts</span>
+      <input type="checkbox" checked />
+    </div>
+
+    <div class="toggle-row">
+      <span>Population Trend Insights</span>
+      <input type="checkbox" />
+    </div>
+  </div>
+
+  <!-- PRIVACY & ACCESS -->
+  <div class="setting-group">
+    <h3>Privacy & Access</h3>
+
+    <div class="toggle-row">
+      <span>Allow Emergency Access</span>
+      <input type="checkbox" checked />
+    </div>
+
+    <div class="toggle-row">
+      <span>Allow Govt. Anonymized Data Use</span>
+      <input type="checkbox" />
+    </div>
+  </div>
+
+  <!-- DANGER ZONE -->
+  <div class="setting-group danger-zone">
+    <h3>Danger Zone</h3>
+
+    <p class="small muted">
+      These actions affect your current session and access.
+    </p>
+
+    <button class="action-btn danger">Logout from all devices</button>
+  </div>
+
+</section>
+
+
+  </main>
+
+</div>
+
+<!-- ================= JS ================= -->
+<script>
+  const navItems = document.querySelectorAll(".nav-item");
+  const panes = document.querySelectorAll(".pane");
+
+  navItems.forEach(item => {
+    item.addEventListener("click", () => {
+      navItems.forEach(i => i.classList.remove("active"));
+      panes.forEach(p => p.classList.remove("active"));
+
+      item.classList.add("active");
+      const paneId = item.getAttribute("data-pane");
+      document.getElementById(paneId).classList.add("active");
+    });
+  });
+</script>
+
+
+<!-- ================= LOGOUT MODAL ================= -->
+<div class="modal hidden" id="logoutModal">
+  <div class="modal-box">
+    <h3>Confirm Logout</h3>
+    <p class="small muted">
+      Are you sure you want to logout?
+    </p>
+
+    <div class="modal-actions">
+      <button class="action-btn secondary" id="cancelLogout">
+        Cancel
+      </button>
+      <button class="action-btn danger" id="confirmLogout">
+        Logout
+      </button>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+
+    const logoutBtn = document.getElementById("logoutBtn");
+    const logoutModal = document.getElementById("logoutModal");
+    const cancelLogout = document.getElementById("cancelLogout");
+    const confirmLogout = document.getElementById("confirmLogout");
+
+    if (!logoutBtn) {
+      console.error("Logout button not found");
+      return;
+    }
+
+    logoutBtn.onclick = () => {
+      logoutModal.classList.remove("hidden");
+    };
+
+    cancelLogout.onclick = () => {
+      logoutModal.classList.add("hidden");
+    };
+
+    confirmLogout.onclick = () => {
+      localStorage.clear();
+      sessionStorage.clear();
+window.location.href = "../login/login.html";
+    };
+
+  });
+</script>
+
+</body>
+</html>

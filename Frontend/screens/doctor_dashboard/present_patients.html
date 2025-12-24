@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Present Patients | Doctor</title>
+
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="dashboard-root">
+
+  <main class="main full">
+
+    <div class="home-header">
+      <h2>Present Patients</h2>
+      <p class="small muted">Patients currently consulting you</p>
+    </div>
+
+    <input type="text"
+           placeholder="Search by VMED ID or Name"
+           class="search-box">
+
+    <table class="patient-table">
+      <thead>
+        <tr>
+          <th>VMED ID</th>
+          <th>Name</th>
+          <th>Purpose</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>VMED1023</td>
+          <td>Arjun Kumar</td>
+          <td>Fever</td>
+          <td>
+            <button class="action-btn"
+              onclick="openPatient('VMED1023','Arjun Kumar')">
+              View
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+</div>
+
+<script src="doctor.js"></script>
+</body>
+</html>
